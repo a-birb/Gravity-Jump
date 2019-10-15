@@ -15,9 +15,9 @@ public class abilityScript : MonoBehaviour {
     
     void Update() {
 
-        if(Input.GetMouseButton(0) == true || jumpcd <= Time.time); {
-            jumpcd = Time.time + 0.75f;
-            r.AddRelativeForce(new Vector2(800f,0));
+        if(Input.GetMouseButtonDown(0) == true && jumpcd <= Time.time) {
+            jumpcd = Time.time + 1f;
+            r.AddRelativeForce(new Vector2(8000f,0));
         }
 
     }
