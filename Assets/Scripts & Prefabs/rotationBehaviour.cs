@@ -4,28 +4,13 @@ using UnityEngine;
 
 public class rotationBehaviour : MonoBehaviour
 {
-    Rigidbody2D r;
+    Vector3 mousePositionInWorld;
+    float angle;
+    float speed = 8f;
  
- void Update() {
-
-        /*r = GetComponent<Rigidbody2D>();
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);
-        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-        float relativeAngle = transform.rotation.z - angle;
-
-        if(relativeAngle > transform.rotation.z) {
-            transform.Rotate(new Vector3(0,0,10),Space.Self);
-        }
-        if(relativeAngle < transform.rotation.z) {
-            transform.Rotate(new Vector3(0,0,-10),Space.Self);
-        }
-
-     }
- 
-        float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;*/
-
-        Vector2 angleVector = Input.mousePosition - transform.position;
+    void Update() {
+         mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+         angle = (Mathf.Atan2(mousePositionInWorld.y - transform.position.y, mousePositionInWorld.x - transform.position.x) * Mathf.Rad2Deg);
+         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle),speed * Time.deltaTime);
     }
 }
