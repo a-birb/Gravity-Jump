@@ -9,6 +9,7 @@ public class abilityScript : MonoBehaviour {
     float firecd;
     public int jumpKey = 1;
     public int fireKey = 0;
+    public GameObject bullet;
 
     void Start() {
         jumpcd = Time.time;
@@ -34,7 +35,7 @@ public class abilityScript : MonoBehaviour {
     void Fire() {
         if(Input.GetMouseButton(fireKey) == true && firecd <= Time.time) {
             firecd = Time.time + 0.08f;
-            GameObject.Instantiate();
+            GameObject.Instantiate(bullet, transform.position, transform.rotation);
         }
     }
 }

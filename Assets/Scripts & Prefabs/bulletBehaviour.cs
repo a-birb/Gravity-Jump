@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class bulletBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D r;
     void Start()
     {
-        
+        r = GetComponent<Rigidbody2D>();
+        r.AddRelativeForce(new Vector2(3000,0));
     }
 
     // Update is called once per frame
