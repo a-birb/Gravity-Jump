@@ -7,6 +7,7 @@ public class abilityScript : MonoBehaviour {
     Rigidbody2D r;
     float jumpcd;
     float firecd;
+    public float jumpspd;
     public int jumpKey = 1;
     public int fireKey = 0;
     public GameObject bullet;
@@ -28,7 +29,7 @@ public class abilityScript : MonoBehaviour {
     void Jump() {
         if(Input.GetMouseButtonDown(jumpKey) == true && jumpcd <= Time.time) {
             jumpcd = Time.time + 1f;
-            r.AddRelativeForce(new Vector2(8000f,0));
+            r.AddRelativeForce(new Vector2(jumpspd,0));
         }
     }
 
@@ -37,6 +38,10 @@ public class abilityScript : MonoBehaviour {
             firecd = Time.time + 0.08f;
             GameObject.Instantiate(bullet, transform.position, transform.rotation);
         }
+    }
+
+    void Death() {
+        
     }
 }
 

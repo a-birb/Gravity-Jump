@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a287af0f4df534288088f9f2bd11b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpspd: 6000
   jumpKey: 1
   fireKey: 0
   bullet: {fileID: 0}
