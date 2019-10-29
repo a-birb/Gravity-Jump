@@ -11,10 +11,9 @@ public class spawnBehaviour : MonoBehaviour
     void Update()
     {
         if(enemies < 10) {
-            if(spawncd > Time.deltaTime) {
-                enemies += 1;
+            if(spawncd <= Time.time) {
                 Instantiate(enemy,gameObject.transform.position,gameObject.transform.rotation);
-                spawncd = Time.deltaTime + 3f;
+                spawncd = Time.time + 3f;
             }
         }
     }
