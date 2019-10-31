@@ -11,6 +11,8 @@ public class abilityScript : MonoBehaviour {
     public int jumpKey = 1;
     public int fireKey = 0;
     public GameObject bullet;
+    public GameObject bulletfx;
+    public GameObject jumpfx;
 
     void Start() {
         jumpcd = Time.time;
@@ -30,6 +32,7 @@ public class abilityScript : MonoBehaviour {
         if(Input.GetMouseButtonDown(jumpKey) == true && jumpcd <= Time.time) {
             jumpcd = Time.time + 1f;
             r.AddRelativeForce(new Vector2(jumpspd,0));
+            Instantiate(jumpfx,transform.position,new Quaternion(transform.rotation.x,transform.rotation.y,transform.rotation.z,1));
         }
     }
 
@@ -37,6 +40,7 @@ public class abilityScript : MonoBehaviour {
         if(Input.GetMouseButton(fireKey) == true && firecd <= Time.time) {
             firecd = Time.time + 0.08f;
             GameObject.Instantiate(bullet, transform.position, transform.rotation);
+            Instantiate(bulletfx,transform.position,Random.rotation);
         }
     }
 

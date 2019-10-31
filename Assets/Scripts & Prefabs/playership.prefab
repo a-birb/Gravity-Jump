@@ -192,7 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a287af0f4df534288088f9f2bd11b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpspd: 6000
+  jumpspd: 7000
   jumpKey: 1
   fireKey: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 7500712908097120666, guid: b9adf3fa0730b8d4a877e6f17b49d5f3, type: 3}
+  bulletfx: {fileID: 4843493695553469628, guid: 6ce43d02ce6c2e143adb8d1199d728dd,
+    type: 3}
+  jumpfx: {fileID: 5117774696971668278, guid: 20ccb9213c801694dbfeab5843e85275, type: 3}

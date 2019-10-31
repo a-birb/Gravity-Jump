@@ -14,11 +14,11 @@ public class wrapBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(o.position.x >= 30) {
-            o.Translate(-58.5f,0,0, Space.World);
+        if(o.position.x >= 26.75f) {
+            o.Translate(-53.5f,0,0, Space.World);
         }
-        if(o.position.x <= -30) {
-            o.Translate(58.5f,0,0, Space.World);
+        if(o.position.x <= -26.75f) {
+            o.Translate(53.5f,0,0, Space.World);
         }
 
         if(o.position.y >= 15) {

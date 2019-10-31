@@ -14,6 +14,7 @@ public class enemyBehaviour : MonoBehaviour
     Transform target;
     GameObject[] planets;
     public GameObject player;
+    public GameObject hitfx;
     Vector3 player_pos;
     Rigidbody2D r;
     void Start()
@@ -48,12 +49,12 @@ public class enemyBehaviour : MonoBehaviour
                     }
                 }
                 // Rotate towards object designated 'Player'
-                player_pos = Camera.main.ScreenToWorldPoint(target.transform.position);
+                player_pos = Camera.main.ScreenToWorldPoint(player.transform.position);
                 angle = (Mathf.Atan2(player_pos.y - transform.position.y, player_pos.x - transform.position.x) * Mathf.Rad2Deg);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle),8f * Time.deltaTime);
-                Debug.LogWarning(angle);
             } else {
                 Destroy(self_object);
+                Destroy(GetComponent<enemyBehaviour>());
             }
         }
     }
@@ -61,7 +62,7 @@ public class enemyBehaviour : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.tag=="bullet") {
             hp -= 1;
-            Debug.LogWarning("Bullet collision");
+            Instantiate(hitfx,transform.position,Random.rotation);
         }
         if(col.gameObject.tag=="Planet") {
             hp -= 999;
