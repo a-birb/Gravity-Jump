@@ -5,14 +5,19 @@ using UnityEngine;
 public class abilityScript : MonoBehaviour {
 
     Rigidbody2D r;
+    float t;
     float jumpcd;
     float firecd;
+    float fxcd;
+    float hp;
     public float jumpspd;
     public int jumpKey = 1;
     public int fireKey = 0;
     public GameObject bullet;
     public GameObject bulletfx;
     public GameObject jumpfx;
+    public float player_pos_x;
+    public float player_pos_y;
 
     void Start() {
         jumpcd = Time.time;
@@ -25,6 +30,11 @@ public class abilityScript : MonoBehaviour {
 
         Jump();
         Fire();
+        player_pos_x = transform.position.x;
+        player_pos_y = transform.position.y;
+        if(hp < 1) {
+            Death();
+        }
 
     }
 
@@ -32,7 +42,8 @@ public class abilityScript : MonoBehaviour {
         if(Input.GetMouseButtonDown(jumpKey) == true && jumpcd <= Time.time) {
             jumpcd = Time.time + 1f;
             r.AddRelativeForce(new Vector2(jumpspd,0));
-            Instantiate(jumpfx,transform.position,new Quaternion(transform.rotation.x,transform.rotation.y,transform.rotation.z,1));
+            //Create 15 instances of FX one after the other
+            //JumpFX();
         }
     }
 

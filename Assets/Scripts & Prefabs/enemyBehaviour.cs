@@ -15,7 +15,7 @@ public class enemyBehaviour : MonoBehaviour
     GameObject[] planets;
     public GameObject player;
     public GameObject hitfx;
-    Vector3 player_pos;
+    Vector2 player_pos;
     Rigidbody2D r;
     void Start()
     {
@@ -26,8 +26,8 @@ public class enemyBehaviour : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called at 50hz
+    void FixedUpdate()
     {   
         // Basic enemy type; Float around planets and shoot at player
         if(enemyType == "basic") {
@@ -41,15 +41,16 @@ public class enemyBehaviour : MonoBehaviour
                     angle = (Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg);
                 
                     if(Vector2.Distance(self.position, target.position) < dist) {
-                        Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+                        Vector2 dir = Quaternion.AngleAxis(angle, Vector2.up) * Vector2.right;
                         r.AddForce(-dir * (2000 / Vector2.Distance(self.position, target.position)));
                     } else {
-                        Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-                        transform.position = Vector3.MoveTowards(transform.position,dir,0.1f);
+                        Vector2 dir = Quaternion.AngleAxis(angle, Vector2.up) * Vector2.right;
+                        transform.position = Vector2.MoveTowards(transform.position,dir,0.1f);
                     }
                 }
                 // Rotate towards object designated 'Player'
-                player_pos = Camera.main.ScreenToWorldPoint(player.transform.position);
+                
+
                 angle = (Mathf.Atan2(player_pos.y - transform.position.y, player_pos.x - transform.position.x) * Mathf.Rad2Deg);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle),8f * Time.deltaTime);
             } else {
@@ -57,6 +58,11 @@ public class enemyBehaviour : MonoBehaviour
                 Destroy(GetComponent<enemyBehaviour>());
             }
         }
+    }
+
+    void Update() {
+        player_pos = new Vector2(player.transform.position.x, player.transform.position.y);
+        //Debug.LogWarning(player_pos);
     }
 
     void OnCollisionEnter2D(Collision2D col) {

@@ -172,5 +172,5 @@ MonoBehaviour:
   hp: 10
   self: {fileID: 5234941682419746544}
   self_object: {fileID: 189662076039683812}
-  player: {fileID: 2888337922415131506, guid: e4c651516e7d9964e8cc03c2d1634a24, type: 3}
+  player: {fileID: 2343409354432794467, guid: e4c651516e7d9964e8cc03c2d1634a24, type: 3}
   hitfx: {fileID: 4843493695553469628, guid: 6ce43d02ce6c2e143adb8d1199d728dd, type: 3}
