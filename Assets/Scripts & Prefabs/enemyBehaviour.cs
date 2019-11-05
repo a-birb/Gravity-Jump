@@ -49,8 +49,6 @@ public class enemyBehaviour : MonoBehaviour
                     }
                 }
                 // Rotate towards object designated 'Player'
-                
-
                 angle = (Mathf.Atan2(player_pos.y - transform.position.y, player_pos.x - transform.position.x) * Mathf.Rad2Deg);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle),8f * Time.deltaTime);
             } else {
