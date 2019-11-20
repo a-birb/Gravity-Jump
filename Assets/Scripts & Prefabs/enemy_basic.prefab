@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189662076039683812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.13, y: -0.44, z: -0.22}
+  m_LocalPosition: {x: -18.13, y: -0.44, z: -1}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -174,3 +174,5 @@ MonoBehaviour:
   self_object: {fileID: 189662076039683812}
   player: {fileID: 2343409354432794467, guid: e4c651516e7d9964e8cc03c2d1634a24, type: 3}
   hitfx: {fileID: 4843493695553469628, guid: 6ce43d02ce6c2e143adb8d1199d728dd, type: 3}
+  spawner: {fileID: 0}
+  bullet: {fileID: 0}

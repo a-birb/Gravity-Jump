@@ -15,14 +15,19 @@ public class enemyBehaviour : MonoBehaviour
     GameObject[] planets;
     public GameObject player;
     public GameObject hitfx;
+    public GameObject spawner;
+    public GameObject bullet;
     Vector2 player_pos;
     Rigidbody2D r;
+    spawnBehaviour s;
     void Start()
     {
         r = GetComponent<Rigidbody2D>();
+        s = spawner.GetComponent<spawnBehaviour>();
         if(enemyType == "basic") {
             hp = 25;
             dist = 15;
+            basecd = Time.time + 1.25f;
         }
     }
 
@@ -41,19 +46,25 @@ public class enemyBehaviour : MonoBehaviour
                     angle = (Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg);
                 
                     if(Vector2.Distance(self.position, target.position) < dist) {
-                        Vector2 dir = Quaternion.AngleAxis(angle, Vector2.up) * Vector2.right;
+                        Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
                         r.AddForce(-dir * (2000 / Vector2.Distance(self.position, target.position)));
                     } else {
-                        Vector2 dir = Quaternion.AngleAxis(angle, Vector2.up) * Vector2.right;
+                        Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
                         transform.position = Vector2.MoveTowards(transform.position,dir,0.1f);
                     }
                 }
                 // Rotate towards object designated 'Player'
                 angle = (Mathf.Atan2(player_pos.y - transform.position.y, player_pos.x - transform.position.x) * Mathf.Rad2Deg);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle),8f * Time.deltaTime);
+
+                // Shoot towards 'Player'
+                if(basecd < Time.time) {
+                    basecd = Time.time + 1.25f;
+                    Instantiate(bullet,transform.position,transform.rotation);
+                }
             } else {
+                s.enemies -= 1;
                 Destroy(self_object);
-                Destroy(GetComponent<enemyBehaviour>());
             }
         }
     }

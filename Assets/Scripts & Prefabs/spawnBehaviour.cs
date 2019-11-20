@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class spawnBehaviour : MonoBehaviour
 {
-    float enemies;
+    public float enemies;
     public GameObject enemy;
-    public float spawncd;
+    float spawncd;
+    public float cooldown;
 
     void Update()
     {
-        if(enemies < 10) {
+        if(enemies < 5) {
             if(spawncd <= Time.time) {
                 Instantiate(enemy,gameObject.transform.position,gameObject.transform.rotation);
-                spawncd = Time.time + 3f;
+                spawncd = Time.time + cooldown;
+                enemies += 1;
             }
         }
-    }
-
-    void Spawn() {
-        enemies += 1;
-        Instantiate(enemy,gameObject.transform.position,gameObject.transform.rotation);
-        return;
     }
 }

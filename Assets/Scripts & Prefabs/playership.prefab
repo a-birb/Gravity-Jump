@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2343409354432794470}
   - component: {fileID: 2343409354432794469}
   - component: {fileID: 2343409354432794468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: playership
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -192,10 +192,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a287af0f4df534288088f9f2bd11b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   jumpspd: 7000
   jumpKey: 1
   fireKey: 0
+  railgunKey: 2
   bullet: {fileID: 7500712908097120666, guid: b9adf3fa0730b8d4a877e6f17b49d5f3, type: 3}
   bulletfx: {fileID: 5117774696971668278, guid: 20ccb9213c801694dbfeab5843e85275,
     type: 3}
   jumpfx: {fileID: 5117774696971668278, guid: 20ccb9213c801694dbfeab5843e85275, type: 3}
+  railbolt: {fileID: 0}
+  player_pos_x: 0
+  player_pos_y: 0

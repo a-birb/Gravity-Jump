@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7713895522768130257}
   - component: {fileID: 6522398575613413890}
   - component: {fileID: 114860337880570096}
-  m_Layer: 1
+  m_Layer: 8
   m_Name: hitFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class edgeBehaviour : MonoBehaviour
 {
-    public Transform o;
-    public GameObject self;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,18 +13,18 @@ public class edgeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(o.position.x >= 30) {
-            Destroy(self);
+        if(transform.position.x >= 30) {
+            Destroy(gameObject);
         }
-        if(o.position.x <= -30) {
-            Destroy(self);
+        if(transform.position.x <= -30) {
+            Destroy(gameObject);
         }
 
-        if(o.position.y >= 15) {
-            Destroy(self);
+        if(transform.position.y >= 15) {
+            Destroy(gameObject);
         }
-        if(o.position.y <= -15) {
-            Destroy(self);
+        if(transform.position.y <= -15) {
+            Destroy(gameObject);
         }
     }
 }
