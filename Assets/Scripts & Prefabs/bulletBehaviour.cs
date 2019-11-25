@@ -16,7 +16,7 @@ public class bulletBehaviour : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col) {
-        if(col.gameObject.tag=="Planet") {
+        if(col.gameObject.tag == "Planet") {
             Destroy(gameObject);
         }
         if(col.gameObject.GetComponent<enemyBehaviour>() == true && pierce == false) {
